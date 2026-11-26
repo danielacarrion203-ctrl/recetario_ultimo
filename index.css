@@ -1,0 +1,927 @@
+
+/* =================================
+   CONFIGURACION GENERAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #F5F0E8;
+    color: #171717;
+}
+
+a {
+    text-decoration: none;
+}
+/* Variables */
+
+:root {
+    --negro: #171717;
+    --rojo: #D92332;
+    --rojo-oscuro: #9F171C;
+    --rosa: #F0BDB2;
+    --blanco: #FFFFFF;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+    width: 97%;
+    min-height: 76px;
+    margin: 15px auto;
+    padding: 10px 25px;
+    background: var(--blanco);
+     border: 1px solid var(--rojo);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+}
+/* LOGO */
+.logo {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--rosa);
+    color: var(--rojo-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+/* ELEMENTOS COMUNES DE NAVEGACION */
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-link,
+.index-menu summary {
+    color: var(--negro);
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    transition: color .3s;
+}
+/* PAGINA ACTIVA Y HOVER */
+.nav-link:hover,
+.nav-link.active,
+.index-menu summary:hover {
+    color: var(--rojo);
+}
+/* BOTON INDICE */
+.header-button {
+    padding: 11px 25px;
+    border: 1px solid var(--rojo);
+    border-radius: 30px;
+    color: var(--rojo-oscuro);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: .3s;
+}
+.header-button:hover {
+    background: var(--rojo);
+    color: var(--blanco);
+}
+/* =================================
+   MENU DESPLEGABLE
+================================= */
+.index-menu {
+    position: relative;
+}
+.index-menu summary::-webkit-details-marker {
+    display: none;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 190px;
+    padding: 12px;
+    background: var(--blanco);
+    border-top: 3px solid var(--rojo);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.index-menu[open] .dropdown {
+    display: block;
+}
+.dropdown a {
+    display: block;
+    padding: 12px;
+    color: var(--negro);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+.dropdown a:hover {
+    color: var(--rojo);
+    padding-left: 17px;
+}
+
+
+/* =================================
+   HERO / PORTADA
+================================= */
+
+.hero {
+    width: 98%;
+    min-height: 590px;
+
+    margin: 0 auto 35px;
+
+    background-color: var(--negro);
+    border-radius: 28px;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-content {
+    min-height: 590px;
+    padding: 35px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+}
+
+
+/* TITULO */
+
+.hero-title {
+    width: 38%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: #D92332;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.hero-title h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(55px, 6vw, 85px);
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -3px;
+    color: var(--blanco);
+}
+
+.hero-title h1 span {
+    display: block;
+    color: #D92332;
+}
+
+.hero-description {
+    margin-top: 25px;
+    max-width: 350px;
+
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* IMAGEN PRINCIPAL */
+
+.hero-image {
+    width: 62%;
+    height: 530px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.5s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.04);
+}
+
+
+/* DETALLE DECORATIVO */
+
+.hero-decoration {
+    position: absolute;
+    bottom: 25px;
+    left: 6%;
+
+    color: #D92332;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+
+/* =================================
+   SECCION CATEGORIAS
+================================= */
+
+.categories {
+    width: 98%;
+    margin: 0 auto 35px;
+
+    padding: 30px 12px 20px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #D92332;
+    border-radius: 22px;
+}
+
+
+/* CABECERA ROJA */
+
+.categories-heading {
+    min-height: 100px;
+
+    background-color: #D92332;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+
+    margin-bottom: 22px;
+    padding: 15px;
+}
+
+.categories-heading p {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.categories-heading h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(25px, 3vw, 38px);
+    font-weight: 700;
+}
+
+.categories-heading h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+
+/* TARJETAS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 10px;
+}
+
+.card {
+    display: block;
+    overflow: hidden;
+
+    background-color: #F0BDB2;
+    border-radius: 18px;
+
+    color: #171717;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* FOTOGRAFIAS */
+
+.card-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.06);
+}
+
+
+/* INFORMACION DE TARJETAS */
+
+.card-info {
+    min-height: 90px;
+    padding: 15px 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-info p {
+    color: #9F171C;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 5px;
+}
+
+.card-info h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.card-arrow {
+    color: #9F171C;
+    font-size: 32px;
+    transition: 0.3s;
+}
+
+.card:hover .card-arrow {
+    transform: translate(5px, -5px);
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+    width: 100%;
+    background-color: #171717;
+
+    color: #FFFFFF;
+    text-align: center;
+
+    padding: 65px 7% 25px;
+}
+
+.footer h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(25px, 4vw, 42px);
+    font-weight: 600;
+}
+
+.footer p {
+    margin-top: 15px;
+    color: #F0BDB2;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+
+    background-color: #555;
+    margin: 40px 0 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* =================================
+   PÁGINA SÁNDWICHES (NUEVA SECCIÓN)
+================================= */
+
+/* Contenedor principal con fondo rojo */
+.sandwiches-container {
+    width: 98%;
+    margin: 0 auto 35px;
+    background-color: var(--rojo);
+    border-radius: 22px;
+    padding: 35px 25px;
+    border: 1px solid var(--rojo);
+}
+
+/* Título SÁNDWICHES */
+.sandwiches-heading {
+    margin-bottom: 25px;
+    padding-left: 10px;
+}
+
+.sandwiches-heading h2 {
+    color: var(--blanco);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(35px, 5vw, 50px);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Cuadrícula de 3 columnas */
+.sandwiches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Tarjeta individual */
+.sandwich-card {
+    background-color: var(--rosa); /* Fondo rosita de tu paleta */
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sandwich-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Imagen de la tarjeta */
+.sandwich-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.sandwich-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.sandwich-card:hover .sandwich-image img {
+    transform: scale(1.06);
+}
+
+/* Textos dentro de la tarjeta */
+.sandwich-info {
+    padding: 20px;
+    flex-grow: 1; /* Hace que todas las tarjetas midan lo mismo de alto */
+}
+
+.sandwich-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-bottom: 10px;
+}
+
+.sandwich-info p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--negro);
+    font-weight: 500;
+}
+
+
+/* =================================
+   HISTORIA Y VARIANTES
+================================= */
+
+.history-page {
+    width: 98%;
+    margin: 0 auto 35px;
+}
+
+/* PORTADA */
+
+.history-hero {
+    min-height: 220px;
+    margin-bottom: 20px;
+    padding: 35px 20px;
+
+    background: var(--negro);
+    border-radius: 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.history-hero p {
+    color: var(--rojo-oscuro);
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.history-hero h1 {
+    margin: 10px 0;
+    color: var(--blanco);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(35px, 5vw, 60px);
+}
+
+
+
+/* CATEGORÍAS */
+
+.history-section {
+    margin-bottom: 30px;
+}
+
+.history-section > h2 {
+    margin-bottom: 15px ;
+    padding: 15px 25px;
+
+    background: var(--rojo-oscuro);
+    
+    border-radius: 15px;
+
+    color: var(--negro);
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* ELABORACIONES */
+
+.history-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 18px;
+    margin-bottom: 20px;
+    scroll-margin-top: 25px;
+}
+
+/* TEXTO */
+
+.history-text {
+    padding: 30px;
+   background: var(--rosa);
+   height: fit-content;
+    border: 1px solid #dd4154;
+    border-radius: 18px;
+}
+
+.history-text h3 {
+    margin-bottom: 20px;
+    color: var(--rojo-oscuro);
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+}
+
+.history-text h4 {
+    margin: 15px 0 5px;
+    color: var(--negro);
+    font-size: 15px;
+}
+
+.history-text p {
+    color:var(--negro);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* IMÁGENES */
+
+.history-image {
+    min-height: unset;
+    height: 325px;
+    border: 1px solid #dd4154;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.history-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.history-item:hover .history-image img {
+    transform: scale(1.04);
+}
+/* =================================
+   PÁGINA BIBLIOGRAFÍA (NUEVA SECCIÓN)
+================================= */
+
+.bibliografia-container {
+    width: 98%;
+    max-width: 800px; /* Para que no se estire demasiado en pantallas grandes */
+    margin: 50px auto;
+    padding: 45px 35px;
+    
+    background-color: var(--blanco); /* Fondo blanco */
+    border: 2px solid var(--rosa); /* Borde rosadito reutilizando tu variable */
+    border-radius: 22px; /* Mismo redondeo que el resto de contenedores */
+    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra sutil para que resalte */
+}
+
+/* Título BIBLIOGRAFÍA */
+.bibliografia-title {
+    font-family: 'Ant', sans-serif; /* Reutilizamos tu fuente condensada */
+    font-size: clamp(35px, 5vw, 50px);
+    font-weight: 700;
+    color: var(--rojo); /* Rojo de tu paleta */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Párrafo introductorio */
+.bibliografia-text p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--negro);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Contenedor de enlaces centrado */
+.bibliografia-links {
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Centra los enlaces horizontalmente */
+    gap: 15px;
+}
+
+/* Estilo de los enlaces (tipo botón o texto resaltado) */
+.bibliografia-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rojo-oscuro);
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #FFF5F3; /* Un fondo muy clarito para que resalten */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Hover de los enlaces */
+.bibliografia-links a:hover {
+    color: var(--blanco);
+    background-color: var(--rojo);
+    transform: translateY(-2px); /* Pequeño salto al pasar el ratón */
+}
+
+/* ================= REFLEXIÓN FINAL ================= */
+.reflection-divider {
+    width: 80%;
+    height: 2px;
+    background-color: #171717;
+    margin: 70px auto;
+}
+.reflection {
+    background-color: #F5F0E8;
+    padding: 30px 10%;
+}
+
+.reflection-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.reflection-label {
+    color: #D92332;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.reflection h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    color: #171717;
+    margin-bottom: 30px;
+}
+
+.reflection p:not(.reflection-label) {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 18px;
+}
+/* =================================
+   RESPONSIVE PARA BIBLIOGRAFÍA
+================================= */
+
+@media (max-width: 600px) {
+    .bibliografia-container {
+        padding: 30px 20px;
+        margin: 30px auto;
+    }
+
+    .bibliografia-title {
+        font-size: 35px;
+    }
+
+    .bibliografia-links a {
+        font-size: 14px;
+        width: 100%; /* Hace que los enlaces ocupen todo el ancho en móviles */
+        text-align: center;
+        padding: 12px;
+    }
+}
+
+/* MÓVILES */
+
+@media (max-width: 750px) {
+    .history-item {
+        grid-template-columns: 1fr;
+    }
+
+    .history-image {
+        min-height: 230px;
+    }
+
+    .history-text {
+        padding: 25px;
+    }
+}
+
+/* =================================
+   RESPONSIVE PARA SÁNDWICHES
+================================= */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 950px) {
+    .sandwiches-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móviles */
+@media (max-width: 650px) {
+    .sandwiches-container {
+        padding: 25px 15px;
+    }
+
+    .sandwiches-grid {
+        grid-template-columns: 1fr; /* 1 sola columna en móviles */
+    }
+
+    .sandwich-image {
+        height: 220px;
+    }
+}
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 850px) {
+
+    .navigation {
+        gap: 15px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 45px 5%;
+    }
+
+    .hero-title {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 350px;
+    }
+
+    .hero-description {
+        margin: 20px auto;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navigation {
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .header-button {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-content {
+        min-height: auto;
+    }
+
+    .hero-title h1 {
+        font-size: 55px;
+    }
+
+    .hero-image {
+        height: 260px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card-image {
+        height: 250px;
+    }
+
+    .categories-heading h2 {
+        font-size: 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
